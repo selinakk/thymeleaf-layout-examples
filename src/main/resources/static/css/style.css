@@ -1,0 +1,7 @@
+@charset "UTF-8";
+body{font-family: system-ui, sans-serif;text-align: center;}
+header{background: lightyellow;}
+header ul li {display: inline-block;}
+.container{padding:25vh 0;background: ghostwhite;}
+section{background:lightpink;}
+footer{background:azure;}

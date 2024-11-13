@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title th:replace="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<th:block th:insert="~{common/header :: header}"></th:block>
+	<th:block th:replace="${content}"></th:block>
+	<th:block th:insert="~{common/footer :: footer}"></th:block>
+</body>
+</html>

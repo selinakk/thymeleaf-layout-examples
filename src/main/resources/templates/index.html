@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{common/layout :: layout(~{::title}, ~{::content})}">
+<head>
+  <title>Thymeleaf layout 예제 - 인덱스</title>
+</head>
+<body>
+	<th:block th:fragment="content">
+		<div class="container">
+			<h2>인덱스페이지 영역입니다</h2> 
+			<th:block th:replace="~{common/filename :: fragment-name}"></th:block>
+		</div>
+	</th:block>
+</body>
+</html>

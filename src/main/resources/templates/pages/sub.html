@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{common/layout :: layout(~{::title}, ~{::content})}">
+<head>
+  <title>Thymeleaf layout 예제 - 서브</title>
+</head>
+<body>
+	<th:block th:fragment="content">
+		<div class="container">
+			<h2>서브페이지 영역입니다</h2>
+		</div>
+	</th:block>
+</body>
+</html>
