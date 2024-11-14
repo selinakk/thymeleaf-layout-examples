@@ -24,7 +24,7 @@ No need for Thymeleaf Layout Dialect
           └ style.css
   📁 templates  
       └ common  
-          ├ filename.html  
+          ├ file-name.html  
           ├ footer.html  
           ├ header.html  
           └ layout.html  
@@ -37,24 +37,23 @@ No need for Thymeleaf Layout Dialect
 코드의 일부를 살펴보겠습니다 Here’s a glimpse of the code 👇
 
 ### layout.html
-태그가 불필요하게 중첩되는 일을 막기 위해 th:block 태그를 사용했습니다 [참고: th:insert, th:replace, th:include의 차이](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#difference-between-thinsert-and-threplace-and-thinclude) <br/>
-th:block tag is used to prevent unnecessary tag nesting [Difference between th:insert and th:replace (and th:include)](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#difference-between-thinsert-and-threplace-and-thinclude)
+[참고: th:insert, th:replace, th:include의 차이](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#difference-between-thinsert-and-threplace-and-thinclude)
 ```
 <body>
-	<th:block th:insert="~{common/header :: header}"></th:block> <!--header-->
-	<th:block th:replace="${content}"></th:block> <!--content-->
-	<th:block th:insert="~{common/footer :: footer}"></th:block> <!--footer-->
+	<header th:replace="~{common/header :: header}"></header>
+	<main th:replace="${content}"></main>
+	<footer th:replace="~{common/footer :: footer}"></footer>
 </body>
 ```
 
 ### header.html
 header 태그가 아니어도 th:fragment="header"인 요소를 쓸 수 있습니다<br/>
-아래 코드 그대로인 경우 header 태그가, 주석을 푸는 경우 div class="header-wrapper"가 layout.html에 렌더링 됩니다<br/><br/>
+아래 코드 그대로인 경우 header 태그가, 주석을 푸는 경우 div class="header-wrapper"가 렌더링 됩니다<br/>
 It doesn't need to be a header tag as long as the element is defined with th:fragment="header"<br/>
 When you uncomment the commented lines, a div class="header-wrapper" will be rendered instead of the header tag
 ```
 <!--<div th:fragment="header" class="header-wrapper">	-->
-	<header th:fragment>
+	<header>
 		<h1>헤더입니다</h1>
 		<ul>
 			<li><a href="/">홈</a></li>
@@ -65,8 +64,8 @@ When you uncomment the commented lines, a div class="header-wrapper" will be ren
 ```
 
 ### index.html
-그다음은 가장 중요한 메인 컨텐츠 영역입니다<br/>
-Lastly, the most important part -the content
+마지막으로 가장 중요한 메인 컨텐츠 영역입니다<br/>
+Lastly, the most important part ㅡthe content
 ```
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{common/layout :: layout(~{::title}, ~{::content})}">

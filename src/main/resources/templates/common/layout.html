@@ -7,8 +7,8 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-	<th:block th:insert="~{common/header :: header}"></th:block>
-	<th:block th:replace="${content}"></th:block>
-	<th:block th:insert="~{common/footer :: footer}"></th:block>
+	<header th:replace="~{common/header :: header}"></header>
+	<main th:replace="${content}"></main>
+	<footer th:replace="~{common/footer :: footer}"></footer>
 </body>
 </html>
